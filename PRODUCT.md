@@ -30,10 +30,10 @@ Propuesta institucional de UX Factory con control editorial del hotel vía Sanit
 - Emite factura
 - Cliente: Dazzler by Wyndham Lima Miraflores (https://dazzlermiraflores.com/)
 - Stack propuesto del proyecto hotelero: **Astro + Sanity + TravelClick** (sin Next.js; sitio de marketing/reservas, no app compleja)
-- SEO + AEO (Answer Engine Optimization) como parte del alcance técnico
-- 3 idiomas, blog, web alineada a la marca actual
-- Inversión típica del paquete (Perú / LATAM): USD 11.000 – 14.000
-- Cronograma: aprox. 9–13 semanas
+- SEO + AEO como eje del valor vs DAZ004 (donde la estrategia SEO no estaba incluida)
+- Alcance alineado al sitemap/hotelero referencial de DAZ004, solo sitio Miraflores
+- Inversión del paquete: S/. 7.250 (sin IGV), con diseño UX/UI desglosado
+- Cronograma: aprox. 40–48 días hábiles
 - Dirección visual fijada: sleek neutro premium institucional (no copiar look Dazzler; evitar clichés AI purple / cream+terracotta / broadsheet)
 
 ## Voice
