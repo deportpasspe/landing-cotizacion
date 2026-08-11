@@ -382,6 +382,93 @@
     color: var(--color-accent-ink);
   }
 
+  .contact-actions {
+    display: grid;
+    gap: 0.75rem;
+    width: 100%;
+    min-width: 0;
+  }
+
+  @media (min-width: 768px) {
+    .contact-actions {
+      width: min(100%, 22rem);
+    }
+  }
+
+  .wa-btn {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 3.5rem;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    text-decoration: none;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .wa-btn:hover,
+  .wa-btn:focus-visible {
+    background: color-mix(in srgb, var(--color-accent) 88%, black);
+    border-color: color-mix(in srgb, var(--color-accent) 88%, black);
+  }
+
+  .wa-btn:active {
+    transform: scale(0.99);
+  }
+
+  .wa-btn__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid color-mix(in srgb, var(--color-accent-ink) 30%, transparent);
+    background: color-mix(in srgb, var(--color-accent-ink) 12%, transparent);
+    flex-shrink: 0;
+  }
+
+  .wa-btn__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .wa-btn__name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-accent-ink);
+    line-height: 1.2;
+  }
+
+  .wa-btn__number {
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: color-mix(in srgb, var(--color-accent-ink) 78%, transparent);
+    word-break: break-word;
+  }
+
+  .wa-btn__cta {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+    opacity: 0.9;
+  }
+
+  @media (min-width: 768px) {
+    .wa-btn {
+      min-height: 3.1rem;
+      padding: 0.7rem 0.85rem;
+    }
+  }
 
   /* Prevent grid/flex children from forcing page overflow */
   .section-grid {
