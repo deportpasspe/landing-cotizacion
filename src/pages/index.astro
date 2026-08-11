@@ -53,9 +53,12 @@ const mobileNav = [
       <header class="px-4 pt-6 pb-8 sm:px-6 sm:pt-8 sm:pb-10 md:px-12 md:pt-12 md:pb-14">
         <div class="mb-6 flex items-start justify-between gap-3 sm:mb-8 sm:items-center sm:gap-4 fade-rise">
           <p class="meta-label m-0 min-w-0 break-all">{quote.meta.reference}</p>
-          <button type="button" class="print-btn no-print" onclick="window.print()">
-            Imprimir / PDF
-          </button>
+          <div class="flex items-center gap-2 no-print">
+            <a href="/propuesta-tecnica" class="print-btn no-underline">Stack</a>
+            <button type="button" class="print-btn" onclick="window.print()">
+              Imprimir / PDF
+            </button>
+          </div>
         </div>
 
         <div class="grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)] lg:items-end lg:gap-10">

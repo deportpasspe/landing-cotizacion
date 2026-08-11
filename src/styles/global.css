@@ -558,8 +558,12 @@
   }
 
   .stack-list > li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
     border-bottom: 1px solid var(--color-line);
     padding-block: 1rem;
+    line-height: 1.5;
   }
 
   .stack-list > li:first-child {
@@ -568,6 +572,138 @@
 
   .stack-list > li:last-child {
     border-bottom: 0;
+  }
+
+  /* Stack comparison page */
+
+  .stack-card {
+    border: 1px solid var(--color-line);
+    background: color-mix(in srgb, var(--color-sheet) 92%, white);
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .stack-card {
+      padding: 2rem;
+    }
+  }
+
+  .stack-card--recommended {
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 8%, var(--color-sheet));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-accent) 15%, transparent);
+  }
+
+  .stack-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stack-card__score {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    min-width: 3.5rem;
+    padding: 0.5rem 0.65rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-paper);
+  }
+
+  .stack-card--recommended .stack-card__score {
+    border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-line));
+    background: color-mix(in srgb, var(--color-accent) 10%, var(--color-paper));
+  }
+
+  .stack-card__score-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+  }
+
+  .stack-card__score-value {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    line-height: 1;
+  }
+
+  .stack-card__verdict {
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+  }
+
+  .stack-card--recommended .stack-card__verdict {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+
+  .stack-card__footer {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .stack-card--recommended .stack-card__footer {
+    border-top-color: color-mix(in srgb, var(--color-accent) 25%, var(--color-line));
+  }
+
+  .stack-card__pro,
+  .stack-card__con {
+    flex-shrink: 0;
+    display: inline-grid;
+    place-items: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 0.15rem;
+  }
+
+  .stack-card__pro {
+    color: #2d7a4f;
+    background: color-mix(in srgb, #2d7a4f 10%, transparent);
+  }
+
+  .stack-card__con {
+    color: #8a4a2b;
+    background: color-mix(in srgb, #8a4a2b 10%, transparent);
+  }
+
+  /* Score chips for decision matrix */
+  .score {
+    display: inline-grid;
+    place-items: center;
+    min-width: 2rem;
+    padding: 0.25rem 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .score--low {
+    color: #8a4a2b;
+    background: color-mix(in srgb, #8a4a2b 10%, transparent);
+  }
+
+  .score--mid {
+    color: #7a6a2b;
+    background: color-mix(in srgb, #7a6a2b 10%, transparent);
+  }
+
+  .score--high {
+    color: #2d7a4f;
+    background: color-mix(in srgb, #2d7a4f 10%, transparent);
   }
 
   .data-card {
