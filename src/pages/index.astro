@@ -465,15 +465,18 @@ const mobileNav = [
       </section>
 
       <footer id="contacto" class="border-t border-line px-4 py-6 sm:px-6 sm:py-8 md:px-12">
-        <div
-          class="flex flex-col gap-5 text-sm text-ink-soft md:flex-row md:items-start md:justify-between md:gap-6"
-        >
-          <div class="min-w-0">
-            <p class="m-0 break-words">
-              <span class="font-medium text-ink">{quote.issuer.name}</span>
-              {" "}| RUC {quote.issuer.ruc}
+        <div class="footer-contact">
+          <div class="footer-contact__intro">
+            <p class="meta-label m-0">Contacto</p>
+            <div class="footer-contact__brand">
+              <p class="display footer-contact__name m-0 text-[1.85rem] sm:text-3xl md:text-4xl">
+                {quote.issuer.name}
+              </p>
+              <p class="footer-contact__ruc m-0">RUC {quote.issuer.ruc}</p>
+            </div>
+            <p class="footer-contact__hint m-0">
+              Escríbenos por WhatsApp para agendar kick off o resolver dudas de la propuesta.
             </p>
-            <p class="meta-label m-0 mt-4 md:hidden">Contactar por WhatsApp</p>
           </div>
           <div class="contact-actions">
             {
