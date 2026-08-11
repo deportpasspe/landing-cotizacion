@@ -1,0 +1,333 @@
+---
+import QuoteLayout from "../layouts/QuoteLayout.astro";
+import { quote } from "../data/quote";
+
+const pageTitle = `${quote.meta.title} | ${quote.issuer.name} para ${quote.client.name}`;
+const pageDescription = quote.summary;
+---
+
+<QuoteLayout title={pageTitle} description={pageDescription}>
+  <main class="py-8 md:py-14 lg:py-16">
+    <article class="sheet">
+      <header class="px-6 pt-8 pb-10 md:px-12 md:pt-12 md:pb-14">
+        <div class="mb-8 flex items-center justify-between gap-4 fade-rise">
+          <p class="meta-label m-0">{quote.meta.reference}</p>
+          <button type="button" class="print-btn no-print" onclick="window.print()">
+            Imprimir / PDF
+          </button>
+        </div>
+
+        <div class="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-end">
+          <div class="fade-rise">
+            <p class="display m-0 text-[clamp(3.25rem,9vw,6.5rem)] text-ink">
+              {quote.issuer.name}
+            </p>
+            <p class="mt-4 prose-measure text-lg text-ink-soft md:text-xl">
+              {quote.summary}
+            </p>
+            <p class="prose-measure mt-3 text-base text-ink-faint">
+              {quote.summarySupport}
+            </p>
+          </div>
+
+          <dl
+            class="fade-rise-delay grid grid-cols-2 gap-x-6 gap-y-5 border-t border-line pt-6 lg:border-t-0 lg:border-l lg:pl-8 lg:pt-0"
+          >
+            <div>
+              <dt class="meta-label">RUC</dt>
+              <dd class="m-0 mt-1 font-medium tracking-wide">{quote.issuer.ruc}</dd>
+            </div>
+            <div>
+              <dt class="meta-label">Fecha</dt>
+              <dd class="m-0 mt-1 font-medium">{quote.meta.issuedAt}</dd>
+            </div>
+            <div>
+              <dt class="meta-label">Validez</dt>
+              <dd class="m-0 mt-1 font-medium">{quote.meta.validDays} días</dd>
+            </div>
+            <div>
+              <dt class="meta-label">Documento</dt>
+              <dd class="m-0 mt-1 font-medium">{quote.meta.title}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div
+          class="mt-10 flex flex-col gap-2 border-t border-line pt-6 md:flex-row md:items-baseline md:justify-between"
+        >
+          <div>
+            <p class="meta-label m-0">Preparado para</p>
+            <p class="display m-0 mt-2 text-2xl md:text-3xl">{quote.client.name}</p>
+          </div>
+          <a
+            class="font-medium text-accent underline-offset-4 hover:underline"
+            href={quote.client.site}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {quote.client.siteLabel}
+          </a>
+        </div>
+      </header>
+
+      <hr class="section-rule" />
+
+      <section class="px-6 py-10 md:px-12 md:py-12" aria-labelledby="alcance">
+        <div class="grid gap-8 md:grid-cols-[220px_1fr]">
+          <h2 id="alcance" class="display m-0 text-3xl md:text-4xl">Alcance</h2>
+          <ul class="m-0 list-none space-y-3 p-0">
+            {
+              quote.scope.map((item) => (
+                <li class="border-b border-line/70 pb-3 text-ink-soft last:border-b-0">
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
+      <hr class="section-rule" />
+
+      <section class="px-6 py-10 md:px-12 md:py-12" aria-labelledby="tecnologia">
+        <div class="grid gap-8 md:grid-cols-[220px_1fr]">
+          <div>
+            <h2 id="tecnologia" class="display m-0 text-3xl md:text-4xl">Tecnología</h2>
+            <p class="prose-measure mt-3 text-ink-soft">{quote.stackPitch.lead}</p>
+          </div>
+          <div>
+            <h3 class="meta-label m-0 mb-4">{quote.stackPitch.title}</h3>
+            <ul class="m-0 mb-10 list-none space-y-5 p-0">
+              {
+                quote.stackPitch.points.map((point) => (
+                  <li class="border-b border-line pb-5 last:border-b-0 last:pb-0">
+                    <p class="m-0 font-medium text-ink">{point.name}</p>
+                    <p class="prose-measure m-0 mt-2 text-ink-soft">{point.why}</p>
+                  </li>
+                ))
+              }
+            </ul>
+            <div class="overflow-x-auto">
+              <table class="w-full min-w-[520px] border-collapse text-left">
+                <thead>
+                  <tr class="border-b border-ink">
+                    <th class="meta-label pb-3 font-medium">Capa</th>
+                    <th class="meta-label pb-3 font-medium">Stack</th>
+                    <th class="meta-label pb-3 font-medium">Rol</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    quote.tech.map((row) => (
+                      <tr class="border-b border-line align-top">
+                        <td class="py-4 pr-4 text-ink-soft">{row.layer}</td>
+                        <td class="py-4 pr-4 font-medium text-ink">{row.value}</td>
+                        <td class="py-4 text-ink-soft">{row.note}</td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-5 text-sm text-ink-soft">
+              Stack recomendado:{" "}
+              <strong class="font-medium text-ink">Astro + Sanity + TravelClick</strong>,
+              con SEO/AEO de base. Sin frameworks de aplicación pesados: el producto es una
+              experiencia de marca orientada a reserva directa.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-rule" />
+
+      <section class="px-6 py-10 md:px-12 md:py-12" aria-labelledby="ventajas">
+        <div class="grid gap-8 md:grid-cols-[220px_1fr]">
+          <h2 id="ventajas" class="display m-0 text-3xl md:text-4xl">Ventajas</h2>
+          <ul class="m-0 list-none space-y-0 p-0">
+            {
+              quote.advantages.map((item) => (
+                <li class="border-b border-line py-4 text-ink-soft first:pt-0 last:border-b-0">
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+
+      <hr class="section-rule" />
+
+      <section class="px-6 py-10 md:px-12 md:py-12" aria-labelledby="cliente">
+        <div class="grid gap-8 md:grid-cols-[220px_1fr]">
+          <div>
+            <h2 id="cliente" class="display m-0 text-3xl md:text-4xl">Actualización</h2>
+            <p class="prose-measure mt-3 text-ink-soft">
+              Desarrollo a cargo de UX Factory; operación editorial diaria a cargo del hotel.
+            </p>
+          </div>
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div>
+              <h3 class="m-0 text-base font-medium text-ink">Durante el proyecto</h3>
+              <ul class="mt-3 list-disc space-y-2 pl-5 text-ink-soft">
+                {quote.clientRole.during.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div>
+              <h3 class="m-0 text-base font-medium text-ink">Día a día en Sanity</h3>
+              <ul class="mt-3 list-disc space-y-2 pl-5 text-ink-soft">
+                {quote.clientRole.daily.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div>
+              <h3 class="m-0 text-base font-medium text-ink">Queda en TravelClick</h3>
+              <ul class="mt-3 list-disc space-y-2 pl-5 text-ink-soft">
+                {quote.clientRole.travelclick.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+            <div>
+              <h3 class="m-0 text-base font-medium text-ink">Interviene UX Factory</h3>
+              <ul class="mt-3 list-disc space-y-2 pl-5 text-ink-soft">
+                {quote.clientRole.uxFactory.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-rule" />
+
+      <section class="px-6 py-10 md:px-12 md:py-12" aria-labelledby="tiempos">
+        <div class="grid gap-8 md:grid-cols-[220px_1fr]">
+          <div>
+            <h2 id="tiempos" class="display m-0 text-3xl md:text-4xl">Tiempos</h2>
+            <p class="mt-3 text-2xl font-medium text-accent">{quote.timeline.total}</p>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full min-w-[560px] border-collapse text-left">
+              <thead>
+                <tr class="border-b border-ink">
+                  <th class="meta-label pb-3 font-medium">Fase</th>
+                  <th class="meta-label pb-3 font-medium">Duración</th>
+                  <th class="meta-label pb-3 font-medium">Entregable</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  quote.timeline.phases.map((phase) => (
+                    <tr class="border-b border-line align-top">
+                      <td class="py-4 pr-4 font-medium text-ink">{phase.name}</td>
+                      <td class="py-4 pr-4 whitespace-nowrap text-ink-soft">{phase.duration}</td>
+                      <td class="py-4 text-ink-soft">{phase.deliverable}</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="invest-band px-6 py-10 md:px-12 md:py-12" aria-labelledby="inversion">
+        <div class="grid gap-8 md:grid-cols-[220px_1fr]">
+          <div>
+            <h2 id="inversion" class="display m-0 text-3xl md:text-4xl text-accent-ink">
+              Inversión
+            </h2>
+            <p class="meta-label mt-5 mb-0">{quote.investment.totalLabel}</p>
+            <p class="mt-2 display text-[clamp(2rem,5vw,3.25rem)] leading-none">
+              USD {quote.investment.packageRange}
+            </p>
+            <p class="mt-4 max-w-xs text-sm leading-relaxed text-accent-ink/85">
+              {quote.investment.totalNote}
+            </p>
+          </div>
+          <div>
+            <table class="w-full border-collapse text-left">
+              <thead>
+                <tr class="border-b border-accent-ink/35">
+                  <th class="meta-label pb-3 font-medium">Concepto</th>
+                  <th class="meta-label pb-3 font-medium text-right">Rango USD</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  quote.investment.items.map((item) => (
+                    <tr class="border-b border-accent-ink/20 align-top">
+                      <td class="py-3.5 pr-4 text-accent-ink/90">{item.concept}</td>
+                      <td class="py-3.5 text-right font-medium whitespace-nowrap">{item.range}</td>
+                    </tr>
+                  ))
+                }
+                <tr class="align-top">
+                  <td class="pt-5 pr-4 font-medium text-accent-ink">
+                    {quote.investment.totalLabel}
+                  </td>
+                  <td class="pt-5 text-right font-medium whitespace-nowrap text-accent-ink">
+                    {quote.investment.packageRange}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="mt-6 border border-accent-ink/30 bg-accent/40 px-4 py-3 text-sm font-medium">
+              {quote.investment.note}
+            </p>
+            <p class="mt-3 text-sm text-accent-ink/80">{quote.investment.platformNote}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 py-10 md:px-12 md:py-12" aria-labelledby="condiciones">
+        <div class="grid gap-8 md:grid-cols-[220px_1fr]">
+          <h2 id="condiciones" class="display m-0 text-3xl md:text-4xl">Condiciones</h2>
+          <ul class="m-0 list-disc space-y-3 pl-5 text-ink-soft">
+            {quote.terms.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      <hr class="section-rule" />
+
+      <section class="px-6 py-10 md:px-12 md:py-12" aria-labelledby="siguiente">
+        <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <h2 id="siguiente" class="display m-0 text-3xl md:text-4xl">Siguiente paso</h2>
+            <p class="prose-measure mt-4 text-lg text-ink-soft">{quote.nextStep}</p>
+          </div>
+          <p class="m-0 text-sm text-ink-faint md:text-right">
+            Cotización emitida por {quote.issuer.name}
+          </p>
+        </div>
+      </section>
+
+      <footer class="border-t border-line px-6 py-8 md:px-12">
+        <div
+          class="flex flex-col gap-4 text-sm text-ink-soft md:flex-row md:items-center md:justify-between"
+        >
+          <p class="m-0">
+            <span class="font-medium text-ink">{quote.issuer.name}</span>
+            {" "}| RUC {quote.issuer.ruc}
+          </p>
+          <div class="flex flex-col gap-2 md:items-end">
+            {
+              quote.issuer.contacts.map((contact) => (
+                <p class="m-0">
+                  <span class="font-medium text-ink">{contact.name}</span>
+                  {" "}
+                  <a
+                    class="text-accent underline-offset-4 hover:underline"
+                    href={contact.whatsappHref}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    WhatsApp {contact.whatsapp}
+                  </a>
+                </p>
+              ))
+            }
+          </div>
+        </div>
+      </footer>
+    </article>
+  </main>
+</QuoteLayout>
