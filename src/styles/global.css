@@ -217,7 +217,7 @@
     section[aria-labelledby],
     #contacto {
       scroll-margin-top: 0.75rem;
-      scroll-margin-bottom: 5.75rem;
+      scroll-margin-bottom: 7rem;
     }
   }
 
@@ -228,10 +228,7 @@
     bottom: 0;
     z-index: 40;
     padding: 0.55rem 0.65rem calc(0.55rem + env(safe-area-inset-bottom));
-    background: color-mix(in srgb, var(--color-sheet) 88%, transparent);
-    border-top: 1px solid color-mix(in srgb, var(--color-line) 80%, transparent);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    pointer-events: none;
   }
 
   @media (min-width: 768px) {
@@ -240,48 +237,149 @@
     }
   }
 
+  .mobile-nav__shell {
+    pointer-events: auto;
+    max-width: 1080px;
+    margin-inline: auto;
+    border: 1px solid color-mix(in srgb, var(--color-line) 85%, var(--color-ink) 15%);
+    background: color-mix(in srgb, var(--color-sheet) 94%, white);
+    box-shadow:
+      0 -10px 28px -18px rgb(18 20 26 / 0.45),
+      0 1px 0 rgb(255 255 255 / 0.7) inset;
+    padding: 0.55rem 0.55rem 0.6rem;
+  }
+
+  .mobile-nav__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0 0.25rem 0.45rem;
+  }
+
+  .mobile-nav__meta-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+  }
+
+  .mobile-nav__meta-progress {
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-accent);
+  }
+
+  .mobile-nav__scroller {
+    position: relative;
+  }
+
   .mobile-nav__track {
     display: flex;
-    gap: 0.35rem;
+    gap: 0.4rem;
     overflow-x: auto;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     max-width: 100%;
+    padding: 0.1rem;
+    scroll-snap-type: x proximity;
   }
 
   .mobile-nav__track::-webkit-scrollbar {
     display: none;
   }
 
+  .mobile-nav__fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1.75rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .mobile-nav__fade--start {
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--color-sheet) 96%, white),
+      transparent
+    );
+  }
+
+  .mobile-nav__fade--end {
+    right: 0;
+    background: linear-gradient(
+      270deg,
+      color-mix(in srgb, var(--color-sheet) 96%, white),
+      transparent
+    );
+  }
+
   .mobile-nav__link {
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
-    min-height: 2.25rem;
-    padding: 0.4rem 0.75rem;
-    border: 1px solid transparent;
+    gap: 0.4rem;
+    min-height: 2.7rem;
+    padding: 0.45rem 0.8rem 0.45rem 0.5rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-paper);
     color: var(--color-ink-soft);
     font-size: 0.8125rem;
     font-weight: 500;
     letter-spacing: 0.01em;
     text-decoration: none;
     white-space: nowrap;
+    scroll-snap-align: center;
     transition:
       color 0.15s ease,
       border-color 0.15s ease,
-      background 0.15s ease;
+      background 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .mobile-nav__index {
+    display: inline-grid;
+    place-items: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    border: 1px solid color-mix(in srgb, var(--color-line) 70%, var(--color-ink) 10%);
+    background: color-mix(in srgb, var(--color-sheet) 80%, white);
+    color: var(--color-ink-faint);
+    font-size: 0.68rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .mobile-nav__text {
+    line-height: 1.1;
+  }
+
+  .mobile-nav__link:active {
+    transform: scale(0.98);
   }
 
   .mobile-nav__link:hover,
   .mobile-nav__link:focus-visible {
     color: var(--color-ink);
+    border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-line));
   }
 
   .mobile-nav__link.is-active {
     color: var(--color-accent-ink);
     background: var(--color-accent);
     border-color: var(--color-accent);
+  }
+
+  .mobile-nav__link.is-active .mobile-nav__index {
+    border-color: color-mix(in srgb, var(--color-accent-ink) 45%, transparent);
+    background: color-mix(in srgb, var(--color-accent-ink) 14%, transparent);
+    color: var(--color-accent-ink);
   }
 
 
