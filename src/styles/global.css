@@ -17,8 +17,15 @@
 }
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -38,6 +45,8 @@
   body {
     margin: 0;
     min-height: 100vh;
+    max-width: 100%;
+    overflow-x: clip;
     font-family: var(--font-body);
     color: var(--color-ink);
     background: var(--color-paper);
@@ -55,6 +64,14 @@
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 3px;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -80,13 +97,21 @@
   }
 
   .sheet {
-    width: min(1080px, calc(100% - 2rem));
+    width: min(1080px, calc(100% - 1.25rem));
+    max-width: 100%;
     margin-inline: auto;
     background: color-mix(in srgb, var(--color-sheet) 92%, white);
     border: 1px solid color-mix(in srgb, var(--color-line) 70%, transparent);
     box-shadow:
       0 1px 0 rgb(255 255 255 / 0.65) inset,
       0 28px 80px -40px rgb(18 20 26 / 0.35);
+    overflow-x: clip;
+  }
+
+  @media (min-width: 480px) {
+    .sheet {
+      width: min(1080px, calc(100% - 2rem));
+    }
   }
 
   @media (min-width: 768px) {
@@ -104,7 +129,9 @@
   .display {
     font-family: var(--font-display);
     letter-spacing: -0.03em;
-    line-height: 0.95;
+    line-height: 0.98;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .meta-label {
@@ -118,6 +145,7 @@
 
   .prose-measure {
     max-width: 68ch;
+    overflow-wrap: break-word;
   }
 
   .fade-rise {
@@ -143,19 +171,27 @@
 
   .print-btn {
     appearance: none;
+    flex-shrink: 0;
     border: 1px solid var(--color-ink);
     background: transparent;
     color: var(--color-ink);
     font-family: var(--font-body);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    padding: 0.65rem 1rem;
+    padding: 0.55rem 0.8rem;
     cursor: pointer;
     transition:
       background 0.2s ease,
       color 0.2s ease;
+  }
+
+  @media (min-width: 480px) {
+    .print-btn {
+      font-size: 0.8125rem;
+      padding: 0.65rem 1rem;
+    }
   }
 
   .print-btn:hover {
@@ -172,15 +208,178 @@
     color: color-mix(in srgb, var(--color-accent-ink) 70%, transparent);
   }
 
-  section[aria-labelledby] {
-    scroll-margin-top: 1.5rem;
+  section[aria-labelledby],
+  #contacto {
+    scroll-margin-top: 1rem;
+  }
+
+  @media (max-width: 767px) {
+    section[aria-labelledby],
+    #contacto {
+      scroll-margin-top: 0.75rem;
+      scroll-margin-bottom: 5.75rem;
+    }
+  }
+
+  .mobile-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    padding: 0.55rem 0.65rem calc(0.55rem + env(safe-area-inset-bottom));
+    background: color-mix(in srgb, var(--color-sheet) 88%, transparent);
+    border-top: 1px solid color-mix(in srgb, var(--color-line) 80%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 
   @media (min-width: 768px) {
-    .sheet section[aria-labelledby] h2.display {
+    .mobile-nav {
+      display: none;
+    }
+  }
+
+  .mobile-nav__track {
+    display: flex;
+    gap: 0.35rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+  }
+
+  .mobile-nav__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-nav__link {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid transparent;
+    color: var(--color-ink-soft);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease,
+      background 0.15s ease;
+  }
+
+  .mobile-nav__link:hover,
+  .mobile-nav__link:focus-visible {
+    color: var(--color-ink);
+  }
+
+  .mobile-nav__link.is-active {
+    color: var(--color-accent-ink);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+
+  /* Prevent grid/flex children from forcing page overflow */
+  .section-grid {
+    display: grid;
+    gap: 1.75rem;
+    min-width: 0;
+  }
+
+  @media (min-width: 768px) {
+    .section-grid {
+      grid-template-columns: minmax(0, 200px) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    .section-grid > :first-child {
       position: sticky;
       top: 1.5rem;
       align-self: start;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-grid {
+      grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+    }
+  }
+
+  .section-grid > * {
+    min-width: 0;
+  }
+
+  .stack-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .stack-list > li {
+    border-bottom: 1px solid var(--color-line);
+    padding-block: 1rem;
+  }
+
+  .stack-list > li:first-child {
+    padding-top: 0;
+  }
+
+  .stack-list > li:last-child {
+    border-bottom: 0;
+  }
+
+  .data-card {
+    border-bottom: 1px solid var(--color-line);
+    padding-block: 1rem;
+  }
+
+  .data-card:first-child {
+    padding-top: 0;
+  }
+
+  .data-card:last-child {
+    border-bottom: 0;
+  }
+
+  .invest-band .data-card {
+    border-bottom-color: color-mix(in srgb, var(--color-accent-ink) 22%, transparent);
+  }
+
+  .data-card__meta {
+    margin: 0.35rem 0 0;
+    font-weight: 500;
+  }
+
+  .table-scroll {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+
+  .table-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+  @media (max-width: 639px) {
+    .table-desktop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .table-mobile {
+      display: none;
     }
   }
 }
@@ -194,6 +393,11 @@
     background: white !important;
     font-size: 10.5pt;
     color: black;
+    overflow: visible;
+  }
+
+  html {
+    overflow: visible;
   }
 
   .page-atmosphere,
@@ -207,6 +411,7 @@
     border: none;
     box-shadow: none;
     background: white;
+    overflow: visible;
   }
 
   a {
@@ -236,7 +441,15 @@
     transform: none !important;
   }
 
-  .sheet section[aria-labelledby] h2.display {
+  .section-grid > :first-child {
     position: static;
+  }
+
+  .table-mobile {
+    display: none !important;
+  }
+
+  .table-desktop {
+    display: block !important;
   }
 }
