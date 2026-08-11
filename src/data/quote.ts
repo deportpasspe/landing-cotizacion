@@ -18,7 +18,6 @@ export const quote = {
   meta: {
     title: "Propuesta digital: canal directo + SEO/AEO",
     reference: "COT-DAZ-2026-001",
-    relatedReference: "Referencia cliente: DAZ004 (01-09-2023)",
     issuedAt: "11 de agosto de 2026",
     validDays: 30,
     language: "es",
@@ -32,16 +31,6 @@ export const quote = {
     "Rediseño y desarrollo del sitio Dazzler Miraflores con diseño UX/UI profesional y foco en SEO/AEO: más usable, más visible en Google y en asistentes de IA, administrable por el hotel y conectado a TravelClick.",
   summarySupport:
     "Incluye servicio de diseño UX/UI (flujos, UI responsive y alineación a brand book), desarrollo en Astro + Sanity, SEO/AEO técnico y reserva directa. Inversión del paquete: S/. 7.250 (sin IGV).",
-  priorWork: {
-    title: "Referencia del trabajo anterior (DAZ004)",
-    points: [
-      "Diseño y desarrollo web con look & feel de cadena / brand book",
-      "Sitio administrable, multiidioma, blog, promociones, habitaciones y reserva externa",
-      "GTM, Analytics, Pixel, WhatsApp, formulario y libro de reclamaciones",
-      "SEO de plugins (preparación básica); estrategia SEO no incluida en ese presupuesto",
-      "Presupuesto histórico de referencia: S/. 3.240 (Miraflores + San Isidro, WordPress)",
-    ],
-  },
   scope: [
     "Diseño UX/UI: arquitectura de información, wireframes clave, UI desktop/mobile y validación con brand book Dazzler / Wyndham",
     "Desarrollo del sitio Miraflores en Astro + CMS Sanity (reemplazo moderno de WordPress)",
@@ -65,7 +54,7 @@ export const quote = {
   ],
   stackPitch: {
     title: "Por qué este enfoque",
-    lead: "Sumamos diseño UX/UI dedicado, un stack moderno y SEO/AEO real. El salto frente a DAZ004 no es solo tecnológico: es usabilidad, conversión y visibilidad.",
+    lead: "Sumamos diseño UX/UI dedicado, un stack moderno y SEO/AEO real: usabilidad, conversión y visibilidad para canal directo.",
     points: [
       {
         name: "Diseño UX/UI",
@@ -73,11 +62,11 @@ export const quote = {
       },
       {
         name: "SEO + AEO (prioridad)",
-        why: "En DAZ004 el sitio se entregó con plugins, pero sin estrategia SEO. Aquí SEO/AEO va en el núcleo: metadata, schema, headings, FAQs naturales, hreflang y contenido que Google y asistentes puedan citar.",
+        why: "SEO/AEO va en el núcleo del proyecto: metadata, schema, headings, FAQs naturales, hreflang y contenido que Google y asistentes puedan citar.",
       },
       {
         name: "Astro + Sanity",
-        why: "HTML ligero, mejor performance que WordPress cargado de plugins, y un CMS limpio para que el hotel edite habitaciones, promos, blog e idiomas.",
+        why: "HTML ligero, mejor performance que un CMS tradicional cargado de plugins, y un panel limpio para que el hotel edite habitaciones, promos, blog e idiomas.",
       },
       {
         name: "TravelClick",

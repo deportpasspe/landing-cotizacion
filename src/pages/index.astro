@@ -6,15 +6,14 @@ const pageTitle = `${quote.meta.title} | ${quote.issuer.name} para ${quote.clien
 const pageDescription = quote.summary;
 
 const mobileNav = [
-  { href: "#referencia", label: "Referencia", short: "1" },
-  { href: "#alcance", label: "Alcance", short: "2" },
-  { href: "#tecnologia", label: "Tecnología", short: "3" },
-  { href: "#ventajas", label: "Ventajas", short: "4" },
-  { href: "#cliente", label: "Actualización", short: "5" },
-  { href: "#tiempos", label: "Tiempos", short: "6" },
-  { href: "#inversion", label: "Inversión", short: "7" },
-  { href: "#condiciones", label: "Condiciones", short: "8" },
-  { href: "#contacto", label: "Contacto", short: "9" },
+  { href: "#alcance", label: "Alcance", short: "1" },
+  { href: "#tecnologia", label: "Tecnología", short: "2" },
+  { href: "#ventajas", label: "Ventajas", short: "3" },
+  { href: "#cliente", label: "Actualización", short: "4" },
+  { href: "#tiempos", label: "Tiempos", short: "5" },
+  { href: "#inversion", label: "Inversión", short: "6" },
+  { href: "#condiciones", label: "Condiciones", short: "7" },
+  { href: "#contacto", label: "Contacto", short: "8" },
 ] as const;
 ---
 
@@ -53,10 +52,7 @@ const mobileNav = [
     <article class="sheet">
       <header class="px-4 pt-6 pb-8 sm:px-6 sm:pt-8 sm:pb-10 md:px-12 md:pt-12 md:pb-14">
         <div class="mb-6 flex items-start justify-between gap-3 sm:mb-8 sm:items-center sm:gap-4 fade-rise">
-          <div class="min-w-0">
-            <p class="meta-label m-0 break-all">{quote.meta.reference}</p>
-            <p class="m-0 mt-1 text-xs text-ink-faint">{quote.meta.relatedReference}</p>
-          </div>
+          <p class="meta-label m-0 min-w-0 break-all">{quote.meta.reference}</p>
           <button type="button" class="print-btn no-print" onclick="window.print()">
             Imprimir / PDF
           </button>
@@ -118,31 +114,6 @@ const mobileNav = [
           </a>
         </div>
       </header>
-
-      <hr class="section-rule" />
-
-      <section class="px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-12" id="referencia" aria-labelledby="referencia-title">
-        <div class="section-grid">
-          <h2 id="referencia-title" class="display m-0 text-[1.85rem] sm:text-3xl md:text-4xl">
-            Referencia
-          </h2>
-          <div class="min-w-0">
-            <p class="meta-label m-0 mb-3">{quote.priorWork.title}</p>
-            <ul class="m-0 list-none space-y-3 p-0">
-              {
-                quote.priorWork.points.map((item) => (
-                  <li class="border-b border-line/70 pb-3 text-ink-soft break-words last:border-b-0">
-                    {item}
-                  </li>
-                ))
-              }
-            </ul>
-            <p class="prose-measure mt-5 text-sm text-ink-faint">
-              Tomamos DAZ004 como referencia de alcance. El paquete actual queda en S/. 7.250 porque incorpora diseño UX/UI dedicado y SEO/AEO de verdad, además del stack Astro + Sanity.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <hr class="section-rule" />
 
