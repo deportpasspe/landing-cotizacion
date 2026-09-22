@@ -29,7 +29,7 @@
 
 ## Layout
 
-- Documento centrado, máximo 1080 px.
+- Documento centrado, máximo 1240 px para aprovechar mejor pantallas grandes.
 - Secciones en grid `220px | 1fr` desde desktop.
 - Separadores hairline; banda de inversión en color acento.
 - Títulos laterales sticky en pantalla, estáticos en impresión.

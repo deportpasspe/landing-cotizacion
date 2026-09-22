@@ -97,7 +97,7 @@
   }
 
   .sheet {
-    width: min(1080px, calc(100% - 1.25rem));
+    width: min(1240px, calc(100% - 1.25rem));
     max-width: 100%;
     margin-inline: auto;
     background: color-mix(in srgb, var(--color-sheet) 92%, white);
@@ -110,13 +110,13 @@
 
   @media (min-width: 480px) {
     .sheet {
-      width: min(1080px, calc(100% - 2rem));
+      width: min(1240px, calc(100% - 2rem));
     }
   }
 
   @media (min-width: 768px) {
     .sheet {
-      width: min(1080px, calc(100% - 4rem));
+      width: min(1240px, calc(100% - 4rem));
     }
   }
 
@@ -239,7 +239,7 @@
 
   .mobile-nav__shell {
     pointer-events: auto;
-    max-width: 1080px;
+    max-width: 1240px;
     margin-inline: auto;
     border: 1px solid color-mix(in srgb, var(--color-line) 85%, var(--color-ink) 15%);
     background: color-mix(in srgb, var(--color-sheet) 94%, white);
