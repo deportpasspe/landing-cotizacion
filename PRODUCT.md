@@ -8,45 +8,47 @@ web
 
 ## Stack
 
-Astro + Tailwind CSS 4 (confirmado en plan; cotización estática sin CMS)
+Astro + Tailwind CSS 4 (cotización estática, sin CMS)
 
 ## Users
 
-Equipo comercial / gerencia del hotel Dazzler by Wyndham Lima Miraflores, revisando una propuesta técnica y económica en laptop o impresa, para decidir si avanzar con el rediseño del sitio.
+Nutricionista emprendedora y socios que evalúan construir un canal digital de venta, suscripción y operación de planes alimenticios en Perú.
 
 ## Product Purpose
 
-Página web de cotización de UX Factory para el rediseño y desarrollo del sitio del hotel: explicar tecnología, ventajas, rol del cliente en actualizaciones, tiempos e inversión, y facilitar la decisión de avanzar.
+Página de cotización de UX Factory ajustada al audio de la clienta: explica por qué una referencia como Allpa Food es más que una web, por qué UX y UI deben resolverse antes del código y cómo lanzar con pagos y logística manuales.
 
 ## Positioning
 
-Propuesta institucional de UX Factory con control editorial del hotel vía Sanity, integración TravelClick y arquitectura Astro; precios en USD sin IGV y con factura.
+Propuesta consultiva, no una copia literal de Allpa Food. Prioriza validación de negocio, claridad comercial, privacidad, experiencia de compra y crecimiento modular.
 
 ## Brand Commitments
 
 - Emisor: UX Factory
 - RUC: 20615046923
-- Precios en USD, no incluyen IGV
+- Precios en soles, no incluyen IGV
 - Emite factura
-- Cliente: Dazzler by Wyndham Lima Miraflores (https://dazzlermiraflores.com/)
-- Stack propuesto del proyecto hotelero: **Astro + Sanity + TravelClick** (sin Next.js; sitio de marketing/reservas, no app compleja)
-- SEO + AEO como eje del valor vs DAZ004 (donde la estrategia SEO no estaba incluida)
-- Alcance alineado al sitemap/hotelero referencial de DAZ004, solo sitio Miraflores
-- Inversión del paquete: S/. 7.250 (sin IGV), con diseño UX/UI desglosado
-- Cronograma: aprox. 40–48 días hábiles
-- Dirección visual fijada: sleek neutro premium institucional (no copiar look Dazzler; evitar clichés AI purple / cream+terracotta / broadsheet)
+- Cliente y nombre comercial pendientes de confirmar
+- Referencia funcional: Allpa Food
+- Opción recomendada: cuenta, wizard nutricional, recomendación de plan y cierre por WhatsApp
+- Inversión estimada opción 1: S/ 6,500, monto conversable
+- Opción 2: cuenta y gestión de pedidos por S/ 9,500, monto conversable
+- Plazos acelerados: 4–6 semanas y 6–8 semanas, sujetos a entrega de materiales y aprobaciones
+- Datos de cuenta en PostgreSQL/Supabase; Sheets solo como copia operativa en la opción 2
+- Pagos y logística manuales en ambas opciones
+- UX Research, UX Design y UI Design ocurren antes del desarrollo
 
 ## Voice
 
-Profesional, claro, directo. Español comercial peruano. Sin hype vacío; enfatizar control del cliente, canal directo y claridad fiscal (IGV / factura).
+Profesional, clara y directa. Español comercial peruano. Explica riesgos y decisiones sin tecnicismo innecesario.
 
 ## Constraints
 
-- No inventar email, teléfono, dirección ni datos bancarios; placeholders `[completar]` si hacen falta
-- Costos de Sanity/hosting a cargo del cliente
-- Un solo deliverable de esta app: la cotización (no la web del hotel)
-- Exportación PDF vía impresión del navegador (`@media print`)
+- No inventar razón social ni datos de la clienta
+- Los hallazgos son una auditoría puntual, no certificación legal o de seguridad
+- Costos de terceros y operación no están incluidos
+- Exportación PDF vía impresión del navegador
 
 ## Accessibility
 
-Contraste WCAG AA en texto de cuerpo; foco de teclado visible; estructura de encabezados semántica; medida de lectura cómoda para documento largo.
+Contraste WCAG AA, foco visible, encabezados semánticos, tablas con alternativa móvil y medida de lectura cómoda.

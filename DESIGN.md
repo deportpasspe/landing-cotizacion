@@ -4,72 +4,54 @@
 
 ## World
 
-**Atelier Ledger** — documento comercial de atelier digital: papel piedra frío, tinta carbón y un solo acento slate-teal. Lee como folio de propuesta, no como landing SaaS.
-
-Use scene: revisión diurna en laptop o impresión A4/letter; luz de oficina; prioriza claridad fiscal y jerarquía de secciones.
+**Atelier Ledger** — documento comercial de estudio digital: papel piedra frío, tinta carbón y un acento slate-teal. Se conserva la identidad visual de la plantilla para que la propuesta lea como una decisión de inversión, no como una landing promocional.
 
 ## Color strategy
 
-**Restrained** — neutros + un acento.
-
 | Token | Value | Uso |
-|-------|-------|-----|
-| `paper` | `#ECEAE6` | Fondo de página / atmósfera |
-| `paper-deep` | `#E0DDD6` | Gradiente inferior |
-| `sheet` | `#F7F6F3` | Superficie del documento |
-| `ink` | `#12141A` | Texto principal, reglas fuertes |
+|---|---|---|
+| `paper` | `#ECEAE6` | Fondo de página |
+| `paper-deep` | `#E0DDD6` | Atmósfera inferior |
+| `sheet` | `#F7F6F3` | Documento |
+| `ink` | `#12141A` | Texto principal |
 | `ink-soft` | `#3D424C` | Cuerpo secundario |
 | `ink-faint` | `#6A707A` | Meta labels |
-| `line` | `#C5C1B8` | Divisores hairline |
-| `accent` | `#1F4E5F` | Banda de inversión, enlaces, énfasis |
-| `accent-soft` | `#D4E3E8` | Selection |
-| `accent-ink` | `#F4FAFB` | Texto sobre accent |
-
-Anti-referencias: púrpura/indigo AI, cream cálido `#F4F1EA` + terracotta, broadsheet denso, glow neón, glassmorphism.
+| `line` | `#C5C1B8` | Divisores |
+| `accent` | `#1F4E5F` | Inversión y énfasis |
+| `accent-soft` | `#D4E3E8` | Fondos informativos |
+| `accent-ink` | `#F4FAFB` | Texto sobre acento |
 
 ## Typography
 
-| Rol | Familia | Notas |
-|-----|---------|-------|
-| Display | Cabinet Grotesk (Fontshare) 500–800 | Tracking ≈ -0.03em; wordmark hero clamp 3.25–6.5rem |
-| Body | Satoshi (Fontshare) 400–700 | ~17px base, line-height 1.65, measure ≤68ch |
-| Meta | Satoshi 500 | 0.75rem, uppercase, letter-spacing 0.04em |
+- Display: Cabinet Grotesk 500–800.
+- Body: Satoshi 400–700.
+- Meta: Satoshi 500 en mayúsculas.
 
 ## Layout
 
-- Documento centrado `sheet` max 1080px, sombra suave + borde hairline
-- Secciones en grid `220px | 1fr` desde `md`
-- Separación por `section-rule` (1px `line`), no cards en contenido principal
-- Banda de inversión a full-bleed del sheet con fondo `accent`
-- Sticky section titles en desktop (se desactiva en print)
+- Documento centrado, máximo 1080 px.
+- Secciones en grid `220px | 1fr` desde desktop.
+- Separadores hairline; banda de inversión en color acento.
+- Títulos laterales sticky en pantalla, estáticos en impresión.
+- Navegación inferior contextual en móvil.
 
-## Components
+## Information hierarchy
 
-- **Print button**: borde ink, hover invertido; oculto en print
-- **Tables**: encabezado con borde ink; filas con borde `line`
-- **Lists**: disc para roles; hairline list para alcance/ventajas
-- **Footer**: RUC + placeholders de contacto
-
-## Motion
-
-- Una entrada `fade-rise` (opacity + translateY + blur breve) en header
-- `prefers-reduced-motion`: animaciones anuladas
-- Print: sin animación
+1. Contexto y diagnóstico.
+2. UX Research, UX Design y UI Design antes del desarrollo.
+3. Alcance funcional y tecnología.
+4. Responsabilidades, fases e inversión.
+5. Condiciones y siguiente paso.
 
 ## Print / PDF
 
-- `@page` margin 14mm
-- Ocultar atmósfera y controles `.no-print`
-- Forzar color de banda de inversión (`print-color-adjust: exact`)
-- Evitar cortes raros en filas de tabla y banda de inversión
-
-## Surfaces
-
-| Ruta | Modo | Brief |
-|------|------|-------|
-| `/` | Read (+ decisión comercial) | Cotización Dazzler Miraflores |
+- `@page` con margen de 14 mm.
+- Ocultar atmósfera, navegación y controles.
+- Conservar colores de la banda de inversión.
+- Evitar cortes de tablas y bloques críticos.
 
 ## Source of truth
 
-Tokens en [`src/styles/global.css`](src/styles/global.css) (`@theme` + components).
-Contenido comercial en [`src/data/quote.ts`](src/data/quote.ts).
+- Tokens y componentes: `src/styles/global.css`.
+- Contenido comercial: `src/data/quote.ts`.
+- Comparativa técnica: `src/data/stacks.ts`.

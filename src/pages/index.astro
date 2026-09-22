@@ -6,14 +6,15 @@ const pageTitle = `${quote.meta.title} | ${quote.issuer.name} para ${quote.clien
 const pageDescription = quote.summary;
 
 const mobileNav = [
-  { href: "#alcance", label: "Alcance", short: "1" },
-  { href: "#tecnologia", label: "Tecnología", short: "2" },
-  { href: "#ventajas", label: "Ventajas", short: "3" },
-  { href: "#cliente", label: "Actualización", short: "4" },
-  { href: "#tiempos", label: "Tiempos", short: "5" },
-  { href: "#inversion", label: "Inversión", short: "6" },
-  { href: "#condiciones", label: "Condiciones", short: "7" },
-  { href: "#contacto", label: "Contacto", short: "8" },
+  { href: "#diagnostico", label: "Diagnóstico", short: "1" },
+  { href: "#ux-ui", label: "UX / UI", short: "2" },
+  { href: "#alcance", label: "Alcance", short: "3" },
+  { href: "#tecnologia", label: "Tecnología", short: "4" },
+  { href: "#responsabilidades", label: "Operación", short: "5" },
+  { href: "#tiempos", label: "Fases", short: "6" },
+  { href: "#inversion", label: "Inversión", short: "7" },
+  { href: "#condiciones", label: "Condiciones", short: "8" },
+  { href: "#contacto", label: "Contacto", short: "9" },
 ] as const;
 ---
 
@@ -119,6 +120,58 @@ const mobileNav = [
 
       <hr class="section-rule" />
 
+      <section class="px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-12" id="diagnostico" aria-labelledby="diagnostico-title">
+        <div class="section-grid">
+          <div class="min-w-0">
+            <h2 id="diagnostico-title" class="display m-0 text-[1.85rem] sm:text-3xl md:text-4xl">Diagnóstico</h2>
+            <p class="prose-measure mt-3 text-ink-soft">{quote.context.lead}</p>
+          </div>
+          <div class="min-w-0">
+            <h3 class="meta-label m-0 mb-4">Requerimientos definidos con Valeria</h3>
+            <div class="space-y-5">
+              {quote.context.findings.map((finding) => (
+                <article class="border-b border-line pb-5 last:border-b-0">
+                  <div class="flex flex-wrap items-baseline justify-between gap-2">
+                    <h4 class="m-0 font-medium text-ink">{finding.title}</h4>
+                    <span class="meta-label text-accent">{finding.impact}</span>
+                  </div>
+                  <p class="prose-measure m-0 mt-2 text-ink-soft">{finding.detail}</p>
+                </article>
+              ))}
+            </div>
+            <h3 class="meta-label m-0 mt-8 mb-3">Oportunidades para la nueva solución</h3>
+            <ul class="m-0 list-disc space-y-2 pl-5 text-ink-soft">
+              {quote.context.opportunities.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-rule" />
+
+      <section class="px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-12" id="ux-ui" aria-labelledby="ux-ui-title">
+        <div class="section-grid">
+          <div class="min-w-0">
+            <h2 id="ux-ui-title" class="display m-0 text-[1.85rem] sm:text-3xl md:text-4xl">UX antes de UI. UI antes de código.</h2>
+            <p class="prose-measure mt-4 text-ink-soft">{quote.uxUi.lead}</p>
+          </div>
+          <div class="min-w-0">
+            <div class="space-y-6">
+              {quote.uxUi.services.map((service) => (
+                <article class="border-b border-line pb-6 last:border-b-0">
+                  <h3 class="m-0 text-lg font-medium text-ink">{service.stage}</h3>
+                  <p class="m-0 mt-2 text-ink-soft"><strong class="font-medium text-ink">Por qué:</strong> {service.why}</p>
+                  <p class="m-0 mt-2 text-sm text-ink-faint"><strong class="font-medium text-ink-soft">Entregables:</strong> {service.outputs}</p>
+                </article>
+              ))}
+            </div>
+            <p class="mt-7 border border-accent/40 bg-accent-soft/45 px-4 py-4 text-sm font-medium text-ink">{quote.uxUi.gate}</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-rule" />
+
       <section class="px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-12" id="alcance" aria-labelledby="alcance-title">
         <div class="section-grid">
           <h2 id="alcance-title" class="display m-0 text-[1.85rem] sm:text-3xl md:text-4xl">Alcance</h2>
@@ -133,10 +186,10 @@ const mobileNav = [
               }
             </ul>
             <div>
-              <h3 class="meta-label m-0 mb-3">Sitemap tentativo</h3>
+              <h3 class="meta-label m-0 mb-3">Módulos de la solución</h3>
               <ul class="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
                 {
-                  quote.sitemap.map((item) => (
+                  quote.modules.map((item) => (
                     <li class="border border-line bg-paper/70 px-3 py-2 text-sm text-ink-soft">
                       {item}
                     </li>
@@ -207,10 +260,10 @@ const mobileNav = [
             </div>
 
             <p class="mt-5 text-sm text-ink-soft break-words">
-              Stack recomendado:{" "}
-              <strong class="font-medium text-ink">Astro + Sanity + TravelClick</strong>,
-              con SEO/AEO de base. Sin frameworks de aplicación pesados: el producto es una
-              experiencia de marca orientada a reserva directa.
+              Ver el análisis completo en la{" "}
+              <a class="font-medium text-accent underline-offset-4 hover:underline" href="/propuesta-tecnica/">comparativa técnica</a>.
+              La recomendación inicial es <strong class="font-medium text-ink">cuenta + wizard + recomendación + WhatsApp</strong>.
+              La opción 2 agrega solicitud e historial de pedidos, manteniendo pago y delivery manuales.
             </p>
           </div>
         </div>
@@ -218,7 +271,7 @@ const mobileNav = [
 
       <hr class="section-rule" />
 
-      <section class="px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-12" id="ventajas" aria-labelledby="ventajas-title">
+      <section class="px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-12" aria-labelledby="ventajas-title">
         <div class="section-grid">
           <h2 id="ventajas-title" class="display m-0 text-[1.85rem] sm:text-3xl md:text-4xl">Ventajas</h2>
           <ul class="stack-list text-ink-soft min-w-0">
@@ -233,14 +286,14 @@ const mobileNav = [
 
       <hr class="section-rule" />
 
-      <section class="px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-12" id="cliente" aria-labelledby="cliente-title">
+      <section class="px-4 py-8 sm:px-6 sm:py-10 md:px-12 md:py-12" id="responsabilidades" aria-labelledby="cliente-title">
         <div class="section-grid">
           <div class="min-w-0">
             <h2 id="cliente-title" class="display m-0 text-[1.85rem] sm:text-3xl md:text-4xl">
-              Actualización
+              Responsabilidades
             </h2>
             <p class="prose-measure mt-3 text-ink-soft">
-              Desarrollo a cargo de UX Factory; operación editorial diaria a cargo del hotel.
+              La plataforma ayuda a evaluar, recomendar y vender, pero la operación nutricional y logística sigue siendo responsabilidad del negocio.
             </p>
           </div>
           <div class="grid gap-8 sm:grid-cols-2 min-w-0">
@@ -251,15 +304,15 @@ const mobileNav = [
               </ul>
             </div>
             <div class="min-w-0">
-              <h3 class="m-0 text-base font-medium text-ink">Día a día en Sanity</h3>
+              <h3 class="m-0 text-base font-medium text-ink">Día a día en el panel</h3>
               <ul class="mt-3 list-disc space-y-2 pl-5 text-ink-soft">
                 {quote.clientRole.daily.map((item) => <li class="break-words">{item}</li>)}
               </ul>
             </div>
             <div class="min-w-0">
-              <h3 class="m-0 text-base font-medium text-ink">Queda en TravelClick</h3>
+              <h3 class="m-0 text-base font-medium text-ink">Queda en la operación</h3>
               <ul class="mt-3 list-disc space-y-2 pl-5 text-ink-soft">
-                {quote.clientRole.travelclick.map((item) => <li class="break-words">{item}</li>)}
+                {quote.clientRole.operations.map((item) => <li class="break-words">{item}</li>)}
               </ul>
             </div>
             <div class="min-w-0">
@@ -279,9 +332,11 @@ const mobileNav = [
           <div class="min-w-0">
             <h2 id="tiempos-title" class="display m-0 text-[1.85rem] sm:text-3xl md:text-4xl">Tiempos</h2>
             <p class="mt-3 text-xl font-medium text-accent sm:text-2xl">{quote.timeline.total}</p>
+            <p class="prose-measure mt-3 text-sm text-ink-soft">{quote.timeline.note}</p>
           </div>
 
           <div class="min-w-0">
+            <h3 class="meta-label m-0 mb-4">Plan de trabajo</h3>
             <div class="table-mobile">
               {
                 quote.timeline.phases.map((phase) => (
@@ -327,7 +382,7 @@ const mobileNav = [
         <div class="section-grid">
           <div class="min-w-0">
             <h2 id="inversion-title" class="display m-0 text-[1.85rem] sm:text-3xl md:text-4xl text-accent-ink">
-              Inversión
+              Inversión estimada
             </h2>
             <p class="meta-label mt-5 mb-0">{quote.investment.totalLabel}</p>
             <p class="mt-2 display text-[clamp(1.65rem,7vw,3.25rem)] leading-[1.05] break-words">
@@ -338,70 +393,23 @@ const mobileNav = [
             </p>
           </div>
           <div class="min-w-0">
-            <div class="table-mobile">
-              {
-                quote.investment.items.map((item) => (
-                  <div class="data-card">
-                    <p class="m-0 text-accent-ink/90">{item.concept}</p>
-                    <p class="data-card__meta text-accent-ink">{item.range}</p>
+            <h3 class="meta-label m-0 mb-4">Dos opciones de inversión</h3>
+            <div class="space-y-8">
+              {quote.investment.packages.map((item) => (
+                <article class="border-b border-accent-ink/30 pb-8 last:border-b-0 last:pb-0">
+                  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <p class="m-0 font-medium text-accent-ink">{item.name}</p>
+                    <p class="m-0 font-medium text-accent-ink">S/ {item.price}</p>
                   </div>
-                ))
-              }
-              <div class="data-card">
-                <p class="m-0 font-medium text-accent-ink">{quote.investment.totalLabel}</p>
-                <p class="data-card__meta text-accent-ink">
-                  {quote.investment.packageRange}
-                </p>
-              </div>
-              <div class="data-card border-b-0">
-                <p class="m-0 text-accent-ink/90">{quote.investment.optionalSupport.concept}</p>
-                <p class="data-card__meta text-accent-ink">
-                  {quote.investment.optionalSupport.range}
-                </p>
-              </div>
+                  <p class="meta-label m-0 mt-1">{item.time}</p>
+                  <p class="m-0 mt-2 text-sm text-accent-ink/80">{item.fit}</p>
+                  <p class="meta-label m-0 mt-5 mb-2">Incluye</p>
+                  <ul class="m-0 list-disc space-y-2 pl-5 text-sm text-accent-ink/90">
+                    {item.includes.map((included) => <li>{included}</li>)}
+                  </ul>
+                </article>
+              ))}
             </div>
-
-            <div class="table-desktop table-scroll">
-              <table>
-                <thead>
-                  <tr class="border-b border-accent-ink/35">
-                    <th class="meta-label pb-3 pr-3 font-medium">Concepto</th>
-                    <th class="meta-label pb-3 font-medium text-right">
-                      Monto {quote.investment.currencyLabel}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    quote.investment.items.map((item) => (
-                      <tr class="border-b border-accent-ink/20 align-top">
-                        <td class="py-3.5 pr-3 text-accent-ink/90">{item.concept}</td>
-                        <td class="py-3.5 text-right font-medium whitespace-nowrap">
-                          {item.range}
-                        </td>
-                      </tr>
-                    ))
-                  }
-                  <tr class="border-b border-accent-ink/35 align-top">
-                    <td class="py-4 pr-3 font-medium text-accent-ink">
-                      {quote.investment.totalLabel}
-                    </td>
-                    <td class="py-4 text-right font-medium whitespace-nowrap text-accent-ink">
-                      {quote.investment.packageRange}
-                    </td>
-                  </tr>
-                  <tr class="align-top">
-                    <td class="pt-4 pr-3 text-accent-ink/90">
-                      {quote.investment.optionalSupport.concept}
-                    </td>
-                    <td class="pt-4 text-right font-medium whitespace-nowrap">
-                      {quote.investment.optionalSupport.range}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
             <p class="mt-6 border border-accent-ink/30 bg-accent/40 px-3 py-3 text-sm font-medium sm:px-4">
               {quote.investment.note}
             </p>
@@ -415,9 +423,20 @@ const mobileNav = [
           <h2 id="condiciones-title" class="display m-0 text-[1.85rem] sm:text-3xl md:text-4xl">
             Condiciones
           </h2>
-          <ul class="m-0 list-disc space-y-3 pl-5 text-ink-soft min-w-0">
-            {quote.terms.map((item) => <li class="break-words">{item}</li>)}
-          </ul>
+          <div class="min-w-0 space-y-8">
+            <div>
+              <h3 class="meta-label m-0 mb-3">Condiciones comerciales</h3>
+              <ul class="m-0 list-disc space-y-3 pl-5 text-ink-soft">
+                {quote.terms.map((item) => <li class="break-words">{item}</li>)}
+              </ul>
+            </div>
+            <div>
+              <h3 class="meta-label m-0 mb-3">No incluido</h3>
+              <ul class="m-0 list-disc space-y-3 pl-5 text-ink-soft">
+                {quote.exclusions.map((item) => <li class="break-words">{item}</li>)}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -448,7 +467,7 @@ const mobileNav = [
               <p class="footer-contact__ruc m-0">RUC {quote.issuer.ruc}</p>
             </div>
             <p class="footer-contact__hint m-0">
-              Escríbenos por WhatsApp para agendar kick off o resolver dudas de la propuesta.
+              Escríbenos por WhatsApp para agendar la sesión de alcance o resolver dudas de la propuesta.
             </p>
           </div>
           <div class="contact-actions">

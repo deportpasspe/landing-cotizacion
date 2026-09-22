@@ -5,9 +5,9 @@ import { quote } from "../data/quote";
 
 const pageTitle = `Propuesta técnica | ${quote.issuer.name}`;
 const pageDescription =
-  "Comparativa técnica WordPress + Elementor vs Astro + Sanity vs Astro + WordPress headless para el sitio Dazzler Miraflores.";
+  "Comparativa de alcance para lanzar un servicio de meal prep nutricional en Perú.";
 
-const allStacks = [stacks.clientWant, stacks.recommended, stacks.hybrid] as const;
+const allStacks = [stacks.commerce, stacks.recommended, stacks.custom] as const;
 ---
 
 <QuoteLayout title={pageTitle} description={pageDescription}>
@@ -20,10 +20,10 @@ const allStacks = [stacks.clientWant, stacks.recommended, stacks.hybrid] as cons
 
         <div class="fade-rise min-w-0">
           <h1 class="display m-0 text-[clamp(2.35rem,9vw,4.5rem)] text-ink text-balance">
-            Qué stack elegir
+            Qué solución elegir
           </h1>
           <p class="prose-measure mt-4 text-base text-ink-soft sm:text-lg md:text-xl">
-            Tres caminos posibles para el sitio Dazzler Miraflores. Cada uno tiene sus ventajas; la decisión depende de qué priorice el hotel.
+            Dos opciones para lanzar y una evolución futura. Ambas incluyen cuenta y evaluación; la diferencia está en si el cliente también gestiona solicitudes de pedido dentro de su perfil.
           </p>
           <p class="prose-measure mt-3 text-sm text-ink-faint sm:text-base">
             Esta comparativa es transparente: presentamos pros, contras y una matriz de decisión. La recomendación es clara, pero la decisión es del cliente.
@@ -41,15 +41,15 @@ const allStacks = [stacks.clientWant, stacks.recommended, stacks.hybrid] as cons
         <div class="space-y-8">
           {
             allStacks.map((stack, i) => (
-              <div class:list={["stack-card", { "stack-card--recommended": i === 1 }]}>
+              <div class:list={["stack-card", { "stack-card--recommended": i === 0 }]}>
                 <div class="stack-card__header">
                   <div>
                     <p class="meta-label m-0">{stack.tagline}</p>
                     <h3 class="display m-0 mt-1 text-xl sm:text-2xl md:text-3xl">{stack.name}</h3>
                   </div>
                   <div class="stack-card__score">
-                    <span class="stack-card__score-label">Hotel</span>
-                    <span class="stack-card__score-value">{stack.hotelScore}</span>
+                    <span class="stack-card__score-label">Producto</span>
+                    <span class="stack-card__score-value">{stack.productScore}</span>
                   </div>
                 </div>
 
@@ -85,7 +85,7 @@ const allStacks = [stacks.clientWant, stacks.recommended, stacks.hybrid] as cons
                     <strong class="font-medium text-ink-soft">Ideal para:</strong> {stack.bestFor}
                   </p>
                   <p class="text-sm text-ink-faint mt-2">
-                    <strong class="font-medium text-ink-soft">Para Dazzler:</strong> {stack.hotelNote}
+                    <strong class="font-medium text-ink-soft">Para este proyecto:</strong> {stack.productNote}
                   </p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const allStacks = [stacks.clientWant, stacks.recommended, stacks.hybrid] as cons
           Matriz de decisión
         </h2>
         <p class="prose-measure mb-8 text-sm text-ink-faint">
-          Del 1 (mínimo) al 5 (máximo). Puntuación basada en requisitos de un hotel premium con multiidioma, SEO/AEO y reserva directa.
+          Del 1 (mínimo) al 5 (máximo). Evaluación orientativa para venta de planes, datos de salud, recurrencia, autogestión y operación de entregas.
         </p>
 
         <div class="table-scroll">
@@ -110,9 +110,9 @@ const allStacks = [stacks.clientWant, stacks.recommended, stacks.hybrid] as cons
             <thead>
               <tr class="border-b border-ink">
                 <th class="meta-label pb-3 pr-3 font-medium">Dimensión</th>
-                <th class="meta-label pb-3 pr-3 font-medium">WP + Elementor</th>
-                <th class="meta-label pb-3 pr-3 font-medium">Astro + Sanity</th>
-                <th class="meta-label pb-3 font-medium">Astro + WP headless</th>
+                <th class="meta-label pb-3 pr-3 font-medium">Cuenta + recomendación</th>
+                <th class="meta-label pb-3 pr-3 font-medium">Cuenta + pedidos</th>
+                <th class="meta-label pb-3 font-medium">Plataforma completa</th>
               </tr>
             </thead>
             <tbody>
@@ -121,18 +121,18 @@ const allStacks = [stacks.clientWant, stacks.recommended, stacks.hybrid] as cons
                   <tr class="border-b border-line align-top">
                     <td class="py-3 pr-3 text-ink-soft">{row.dimension}</td>
                     <td class="py-3 pr-3">
-                      <span class:list={["score", { "score--low": Number(row.wpElementor) <= 2, "score--mid": Number(row.wpElementor) === 3, "score--high": Number(row.wpElementor) >= 4 }]}>
-                        {row.wpElementor}
+                      <span class:list={["score", { "score--low": Number(row.commerce) <= 2, "score--mid": Number(row.commerce) === 3, "score--high": Number(row.commerce) >= 4 }]}>
+                        {row.commerce}
                       </span>
                     </td>
                     <td class="py-3 pr-3">
-                      <span class:list={["score", { "score--low": Number(row.astroSanity) <= 2, "score--mid": Number(row.astroSanity) === 3, "score--high": Number(row.astroSanity) >= 4 }]}>
-                        {row.astroSanity}
+                      <span class:list={["score", { "score--low": Number(row.recommended) <= 2, "score--mid": Number(row.recommended) === 3, "score--high": Number(row.recommended) >= 4 }]}>
+                        {row.recommended}
                       </span>
                     </td>
                     <td class="py-3">
-                      <span class:list={["score", { "score--low": Number(row.astroWpHeadless) <= 2, "score--mid": Number(row.astroWpHeadless) === 3, "score--high": Number(row.astroWpHeadless) >= 4 }]}>
-                        {row.astroWpHeadless}
+                      <span class:list={["score", { "score--low": Number(row.custom) <= 2, "score--mid": Number(row.custom) === 3, "score--high": Number(row.custom) >= 4 }]}>
+                        {row.custom}
                       </span>
                     </td>
                   </tr>
@@ -141,13 +141,13 @@ const allStacks = [stacks.clientWant, stacks.recommended, stacks.hybrid] as cons
               <tr class="border-t-2 border-ink font-medium">
                 <td class="py-4 pr-3 text-ink">Promedio</td>
                 <td class="py-4 pr-3">
-                  <span class="score score--low">2.7</span>
+                  <span class="score score--high">4.1</span>
                 </td>
                 <td class="py-4 pr-3">
-                  <span class="score score--high">4.6</span>
+                  <span class="score score--high">3.9</span>
                 </td>
                 <td class="py-4">
-                  <span class="score score--mid">3.6</span>
+                  <span class="score score--mid">3.4</span>
                 </td>
               </tr>
             </tbody>
@@ -164,22 +164,22 @@ const allStacks = [stacks.clientWant, stacks.recommended, stacks.hybrid] as cons
             Nuestra recomendación
           </h2>
           <p class="mt-5 text-lg text-accent-ink/90 leading-relaxed">
-            Para un hotel de marca como Dazzler, con necesidad de multiidioma, SEO/AEO como diferencial y reserva directa vía TravelClick, <strong>Astro + Sanity</strong> es la opción que mejor equilibra rendimiento, control editorial y costo operativo.
+            De acuerdo con la confirmación de Valeria, recomendamos comenzar con <strong>cuenta y recomendación</strong>: registro seguro, wizard nutricional, plan recomendado y cierre por WhatsApp.
           </p>
           <p class="mt-4 text-accent-ink/80 leading-relaxed">
-            Si el equipo insiste en WordPress, podemos explorar <strong>Astro + WordPress headless</strong>: ganamos velocidad en el frontend sin cambiar el CMS, aunque se mantiene la dependencia de plugins para multiidioma y seguridad.
+            La opción de <strong>cuenta y gestión de pedidos</strong> agrega direcciones, solicitudes e historial básico. Google Sheets recibe una copia operativa, mientras perfiles, respuestas y credenciales permanecen en la base segura.
           </p>
           <p class="mt-4 text-accent-ink/80 leading-relaxed">
-            Lo que no recomendamos es <strong>WordPress + Elementor</strong> para este caso: el site actual ya fue construido así y los límites de rendimiento, SEO y multiidioma son precisamente lo que esta propuesta busca resolver.
+            Una <strong>plataforma completa</strong> como Allpa Food se justifica después, con volumen y procesos probados. Incluye mucho más que una web: cuentas, pagos, suscripciones, paneles, incidencias, logística, seguridad y mantenimiento continuo.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
-              href="https://wa.me/5491165940247"
+              href="/"
               target="_blank"
               rel="noreferrer"
               class="inline-flex items-center justify-center border border-accent-ink bg-accent-ink px-6 py-3 text-sm font-medium text-accent no-underline transition-colors hover:bg-transparent hover:text-accent-ink"
             >
-              Consultar dudas por WhatsApp
+              Volver a la cotización
             </a>
           </div>
         </div>
