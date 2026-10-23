@@ -5,7 +5,7 @@ import { quote } from "../data/quote";
 
 const pageTitle = `Propuesta técnica | ${quote.issuer.name}`;
 const pageDescription =
-  "Comparativa de alcance para lanzar un servicio de meal prep nutricional en Perú.";
+  "Comparativa de alcance para rediseñar MTB XC Pongo de Maenique y ordenar sus inscripciones.";
 
 const allStacks = [stacks.commerce, stacks.recommended, stacks.custom] as const;
 ---
@@ -23,7 +23,7 @@ const allStacks = [stacks.commerce, stacks.recommended, stacks.custom] as const;
             Qué solución elegir
           </h1>
           <p class="prose-measure mt-4 text-base text-ink-soft sm:text-lg md:text-xl">
-            Dos opciones para lanzar y una evolución futura. Ambas incluyen cuenta y evaluación; la diferencia está en si el cliente también gestiona solicitudes de pedido dentro de su perfil.
+            Dos opciones para relanzar la experiencia y una evolución futura. La diferencia principal está en mantener la validación humana del pago o integrar inscripción, pago y cupo en un solo recorrido.
           </p>
           <p class="prose-measure mt-3 text-sm text-ink-faint sm:text-base">
             Esta comparativa es transparente: presentamos pros, contras y una matriz de decisión. La recomendación es clara, pero la decisión es del cliente.
@@ -41,7 +41,7 @@ const allStacks = [stacks.commerce, stacks.recommended, stacks.custom] as const;
         <div class="space-y-8">
           {
             allStacks.map((stack, i) => (
-              <div class:list={["stack-card", { "stack-card--recommended": i === 0 }]}>
+              <div class:list={["stack-card", { "stack-card--recommended": i === 1 }]}>
                 <div class="stack-card__header">
                   <div>
                     <p class="meta-label m-0">{stack.tagline}</p>
@@ -102,7 +102,7 @@ const allStacks = [stacks.commerce, stacks.recommended, stacks.custom] as const;
           Matriz de decisión
         </h2>
         <p class="prose-measure mb-8 text-sm text-ink-faint">
-          Del 1 (mínimo) al 5 (máximo). Evaluación orientativa para venta de planes, datos de salud, recurrencia, autogestión y operación de entregas.
+          Del 1 (mínimo) al 5 (máximo). Evaluación orientativa para narrativa, inscripción, pagos, operación, experiencia internacional y evolución del evento.
         </p>
 
         <div class="table-scroll">
@@ -110,9 +110,9 @@ const allStacks = [stacks.commerce, stacks.recommended, stacks.custom] as const;
             <thead>
               <tr class="border-b border-ink">
                 <th class="meta-label pb-3 pr-3 font-medium">Dimensión</th>
-                <th class="meta-label pb-3 pr-3 font-medium">Cuenta + recomendación</th>
-                <th class="meta-label pb-3 pr-3 font-medium">Cuenta + pedidos</th>
-                <th class="meta-label pb-3 font-medium">Plataforma completa</th>
+                <th class="meta-label pb-3 pr-3 font-medium">Inscripción asistida</th>
+                <th class="meta-label pb-3 pr-3 font-medium">Pago online</th>
+                <th class="meta-label pb-3 font-medium">Ecosistema de carrera</th>
               </tr>
             </thead>
             <tbody>
@@ -141,13 +141,13 @@ const allStacks = [stacks.commerce, stacks.recommended, stacks.custom] as const;
               <tr class="border-t-2 border-ink font-medium">
                 <td class="py-4 pr-3 text-ink">Promedio</td>
                 <td class="py-4 pr-3">
-                  <span class="score score--high">4.1</span>
+                  <span class="score score--mid">3.4</span>
                 </td>
                 <td class="py-4 pr-3">
-                  <span class="score score--high">3.9</span>
+                  <span class="score score--high">4.4</span>
                 </td>
                 <td class="py-4">
-                  <span class="score score--mid">3.4</span>
+                  <span class="score score--high">3.9</span>
                 </td>
               </tr>
             </tbody>
@@ -164,13 +164,13 @@ const allStacks = [stacks.commerce, stacks.recommended, stacks.custom] as const;
             Nuestra recomendación
           </h2>
           <p class="mt-5 text-lg text-accent-ink/90 leading-relaxed">
-            De acuerdo con la confirmación de Valeria, recomendamos comenzar con <strong>cuenta y recomendación</strong>: registro seguro, wizard nutricional, plan recomendado y cierre por WhatsApp.
+            Recomendamos la <strong>inscripción y pago online</strong> como solución objetivo: elimina el recorrido doble, vincula el pago con el participante y confirma el cupo sin depender de comprobantes revisados uno por uno.
           </p>
           <p class="mt-4 text-accent-ink/80 leading-relaxed">
-            La opción de <strong>cuenta y gestión de pedidos</strong> agrega direcciones, solicitudes e historial básico. Google Sheets recibe una copia operativa, mientras perfiles, respuestas y credenciales permanecen en la base segura.
+            Si el presupuesto o la fecha de lanzamiento requieren una salida gradual, la <strong>inscripción asistida</strong> sigue siendo una primera etapa válida: mantiene la transferencia, pero deja una sola tarifa, un solo formulario y estados operativos claros.
           </p>
           <p class="mt-4 text-accent-ink/80 leading-relaxed">
-            Una <strong>plataforma completa</strong> como Allpa Food se justifica después, con volumen y procesos probados. Incluye mucho más que una web: cuentas, pagos, suscripciones, paneles, incidencias, logística, seguridad y mantenimiento continuo.
+            El <strong>ecosistema de carrera</strong> —tracking, cronometraje, resultados en vivo, app y fidelización— debe quedar en el roadmap. Es una capa operativa distinta al rediseño y conviene abordarla cuando los procesos y proveedores estén consolidados.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a

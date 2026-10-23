@@ -1,6 +1,6 @@
-# Cotización — plataforma de nutrición y delivery
+# Cotización — MTB XC Pongo de Maenique
 
-Propuesta web imprimible de UX Factory para el emprendimiento de meal prep de Valeria e Ivana. Ambas opciones incluyen cuenta, wizard y recomendación de plan; la segunda agrega solicitudes e historial básico de pedidos. Pagos y logística permanecen manuales.
+Propuesta web imprimible de UX Factory para el rediseño de la experiencia, comunicación e inscripción de MTB XC Pongo de Maenique. Incluye auditoría, benchmark, UX/UI, desarrollo y dos opciones: pago asistido o pago online integrado.
 
 ## Comandos
 
@@ -13,6 +13,6 @@ npm run build
 Rutas:
 
 - `/`: propuesta comercial completa.
-- `/propuesta-tecnica/`: comparación de arquitecturas.
+- `/propuesta-tecnica/`: comparación de soluciones.
 
 El contenido editable está en `src/data/quote.ts` y `src/data/stacks.ts`. La cotización se exporta a PDF usando “Imprimir / PDF”.

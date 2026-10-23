@@ -12,15 +12,15 @@ Astro + Tailwind CSS 4 (cotización estática, sin CMS)
 
 ## Users
 
-Nutricionista emprendedora y socios que evalúan construir un canal digital de venta, suscripción y operación de planes alimenticios en Perú.
+Organizadores de MTB XC Pongo de Maenique que evalúan rediseñar su experiencia digital, ordenar inscripciones y habilitar pagos online.
 
 ## Product Purpose
 
-Página de cotización de UX Factory ajustada al audio de la clienta: explica por qué una referencia como Allpa Food es más que una web, por qué UX y UI deben resolverse antes del código y cómo lanzar con pagos y logística manuales.
+Propuesta consultiva de UX Factory basada en una auditoría de la web vigente y en benchmarks internacionales de carreras MTB por etapas. Explica la oportunidad narrativa, el problema del recorrido doble de inscripción y dos niveles de implementación.
 
 ## Positioning
 
-Propuesta consultiva, no una copia literal de Allpa Food. Prioriza validación de negocio, claridad comercial, privacidad, experiencia de compra y crecimiento modular.
+No es únicamente un cambio visual. La propuesta conecta comunicación, contenido, UX, UI, tecnología, registro, pago y operación del participante.
 
 ## Brand Commitments
 
@@ -28,25 +28,23 @@ Propuesta consultiva, no una copia literal de Allpa Food. Prioriza validación d
 - RUC: 20615046923
 - Precios en soles, no incluyen IGV
 - Emite factura
-- Cliente y nombre comercial pendientes de confirmar
-- Referencia funcional: Allpa Food
-- Opción recomendada: cuenta, wizard nutricional, recomendación de plan y cierre por WhatsApp
-- Inversión estimada opción 1: S/ 6,500, monto conversable
-- Opción 2: cuenta y gestión de pedidos por S/ 9,500, monto conversable
-- Plazos acelerados: 4–6 semanas y 6–8 semanas, sujetos a entrega de materiales y aprobaciones
-- Datos de cuenta en PostgreSQL/Supabase; Sheets solo como copia operativa en la opción 2
-- Pagos y logística manuales en ambas opciones
-- UX Research, UX Design y UI Design ocurren antes del desarrollo
+- Cliente: MTB XC Pongo de Maenique
+- Referencias: Titan Desert, BC Bike Race, Trans Madeira y Cape Epic
+- Opción 1: experiencia + inscripción asistida por S/ 10,500
+- Opción 2: inscripción y pago online por S/ 18,500
+- Plazos: 6–8 semanas y 9–12 semanas
+- UX, contenido y UI se aprueban antes del desarrollo
+- Despliegue propuesto en Vercel
 
 ## Voice
 
-Profesional, clara y directa. Español comercial peruano. Explica riesgos y decisiones sin tecnicismo innecesario.
+Profesional, clara, directa y comercial. Español peruano. Explica oportunidades y riesgos sin tecnicismos innecesarios.
 
 ## Constraints
 
-- No inventar razón social ni datos de la clienta
-- Los hallazgos son una auditoría puntual, no certificación legal o de seguridad
-- Costos de terceros y operación no están incluidos
+- La auditoría es puntual y se basa en la web pública revisada el 21 de octubre de 2026
+- No inventar cifras deportivas, procesos, razones sociales ni acuerdos con pasarelas
+- Costos de terceros, producción audiovisual y operación de carrera no están incluidos
 - Exportación PDF vía impresión del navegador
 
 ## Accessibility
