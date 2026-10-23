@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "comparativa-mtb-pongo.vercel.app"
+        }
+      ],
+      "destination": "/propuesta-tecnica",
+      "permanent": false
+    }
+  ]
+}
